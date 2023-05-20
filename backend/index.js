@@ -6,6 +6,8 @@ const app = express();
 app.use(express.json());
 app.use(cors({ origin: true }));
 
+const PORT = 3002;
+
 app.post("/authenticate", async (req, res) => {
     const { username } = req.body;
     // Get or create user on Chat Engine!
@@ -21,4 +23,6 @@ app.post("/authenticate", async (req, res) => {
     }
   });
 
-app.listen(3001);
+app.listen(PORT, () => {
+  console.log(`server started and running on ${PORT}`)
+} );
